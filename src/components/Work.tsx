@@ -12,6 +12,7 @@ const projects = [
     tools: ["Python", "NLP", "Pandas", "APIs", "Data Analytics"],
     gradient: "linear-gradient(135deg, #0f2c5e 0%, #1a5276 50%, #0e6655 100%)",
     accent: "#5eead4",
+    image: "/images/Dusseldorf.jpeg",
     link: "https://www.linkedin.com/in/krish-gaba/",
   },
   {
@@ -23,6 +24,7 @@ const projects = [
     tools: ["Python", "LLM APIs", "NLP", "Automation", "Data Parsing"],
     gradient: "linear-gradient(135deg, #1a0533 0%, #4a235a 50%, #6c3483 100%)",
     accent: "#c39bd3",
+    image: "/images/Masume.jpeg",
     link: "https://www.linkedin.com/in/krish-gaba/",
   },
   {
@@ -34,6 +36,7 @@ const projects = [
     tools: ["Python", "Data Analysis", "HTML", "CSS", "Data Visualization"],
     gradient: "linear-gradient(135deg, #0b3c2b 0%, #1e8449 50%, #117a65 100%)",
     accent: "#58d68d",
+    image: "/images/Metropoly.jpeg",
     link: "https://www.linkedin.com/in/krish-gaba/",
   },
   {
@@ -45,6 +48,7 @@ const projects = [
     tools: ["Python", "Federated Learning", "PyTorch", "Security Analysis"],
     gradient: "linear-gradient(135deg, #1a0a00 0%, #6e2f1a 50%, #922b21 100%)",
     accent: "#f1948a",
+    image: "/images/cispa_FederatedML.jpeg",
     link: "https://www.linkedin.com/in/krish-gaba/",
   },
   {
@@ -56,6 +60,7 @@ const projects = [
     tools: ["Python", "Cloud Security", "AI", "Federated Learning"],
     gradient: "linear-gradient(135deg, #0d1b2a 0%, #1b2a4a 50%, #2c3e6b 100%)",
     accent: "#7fb3f5",
+    image: null,
     link: "https://www.linkedin.com/in/krish-gaba/",
   },
 ];
@@ -145,7 +150,7 @@ const Work = () => {
                       </div>
                     </div>
 
-                    {/* Gradient Card */}
+                    {/* Project Card */}
                     <div className="carousel-image-wrapper">
                       <a
                         href={project.link}
@@ -153,16 +158,24 @@ const Work = () => {
                         rel="noreferrer"
                         data-cursor="disable"
                         className="project-card"
-                        style={{ background: project.gradient }}
+                        style={{ background: project.image ? "transparent" : project.gradient }}
                       >
-                        <div
-                          className="project-card-glow"
-                          style={{ background: project.accent }}
-                        />
+                        {project.image ? (
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="project-card-img"
+                          />
+                        ) : (
+                          <div
+                            className="project-card-glow"
+                            style={{ background: project.accent }}
+                          />
+                        )}
                         <div className="project-card-content">
                           <span
                             className="project-card-title"
-                            style={{ color: project.accent }}
+                            style={{ color: project.image ? "#fff" : project.accent }}
                           >
                             {project.title}
                           </span>
